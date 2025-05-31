@@ -67,7 +67,7 @@ public class ShortenController {
     public ResponseEntity<ShortenUrlDTO> createShortUrl(@RequestBody @Valid CreateShortenUrlRequestDTO data) {
         ShortenUrl shortenUrl = shortenService.createShortUrl(data);
         ShortenUrlDTO defaultShortenDTO = shortenUrlMapper.toDefaultShortenDTO(shortenUrl);
-        return ResponseEntity.status(201).body(defaultShortenDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(defaultShortenDTO);
     }
 
     @PutMapping("/{shortCode}")
